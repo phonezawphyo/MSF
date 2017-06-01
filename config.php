@@ -16,17 +16,16 @@ use Medoo\Medoo;
 
 /* Location Settings */
 
-$startingLat = 50.4005976;                                      // Starting latitude
-$startingLng = -4.1355412;                                      // Starting longitude
+$startingLat = 35.6546138;                                      // Starting latitude
+$startingLng = 139.6949617;                                      // Starting longitude
 
 /* Map Title + Language */
 
-$title = "Pokemon Go Map";                                      // Title to display in title bar
+$title = "Japan | Monocle";                                      // Title to display in title bar
 $locale = "en";                                                 // Display language
 
 /* Google Maps Key */
-
-$gmapsKey = "GMAPS_API_KEY;          // Google Maps API Key
+$gmapsKey = getenv("POGOMAP_GMAPS_KEY");          // Google Maps API Key
 
 
 //-----------------------------------------------------
@@ -51,6 +50,9 @@ $db = new Medoo([// required
             'password' => 'database_password',
 
             // [optional]
-            //'charset' => 'utf8',
+            'charset' => 'utf8',
             //'port' => 5432,                                             // Comment out if not needed, just add // in front!
         ]);
+
+date_default_timezone_set('Asia/Tokyo');
+
