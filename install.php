@@ -17,4 +17,10 @@ $createindex2->execute();
 $createindex3 = $db->pdo->prepare('CREATE INDEX ix_coords ON spawnpoints(lat,lon)');
 $createindex3->execute();
 
+$createindex4 = $db->pdo->prepare('CREATE INDEX ix_sightings_spawn ON sightings(spawn_id)');
+$createindex4->execute();
+
+#$createindex5 = $db->pdo->prepare('CREATE INDEX ix_sightings_coords ON sightings(lat,lon)');
+#$createindex5->execute();
+
 echo "Successfully applied any changes that were needed!\n";
