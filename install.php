@@ -13,4 +13,8 @@ $createindex->execute();
 
 $createindex2 = $db->pdo->prepare('CREATE INDEX last_updated_index ON fort_sightings (last_updated)');
 $createindex2->execute();
-echo "Successfully applied any changes that were needed!";
+
+$createindex3 = $db->pdo->prepare('CREATE INDEX ix_coords ON spawnpoints(lat,lon)');
+$createindex3->execute();
+
+echo "Successfully applied any changes that were needed!\n";
