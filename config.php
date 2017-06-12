@@ -4,6 +4,7 @@ namespace Config;
 // Do not touch this!
 require 'Medoo.php';
 use Medoo\Medoo;
+use PDO;
 
 //======================================================================
 // MSF - CONFIG FILE
@@ -35,7 +36,7 @@ $gmapsKey = getenv("POGOMAP_GMAPS_KEY");          // Google Maps API Key
 // Clear pokemon from database this many hours after they disappear (0 to disable)
 // This is recommended unless you wish to store a lot of backdata for statistics etc!
 
-$purgeData = 0;
+$purgeData = 1;
 
 
 //-----------------------------------------------------
@@ -52,6 +53,10 @@ $db = new Medoo([// required
             // [optional]
             'charset' => 'utf8',
             //'port' => 5432,                                             // Comment out if not needed, just add // in front!
+
+            'option' => [
+              PDO::ATTR_TIMEOUT => 15 
+            ],
         ]);
 
 date_default_timezone_set('Asia/Tokyo');
